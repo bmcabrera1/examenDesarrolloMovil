@@ -1,0 +1,7 @@
+{
+  "name": "examen_parcial_3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
