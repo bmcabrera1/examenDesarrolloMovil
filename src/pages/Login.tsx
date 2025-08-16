@@ -13,7 +13,7 @@ import {
   IonCardContent,
   IonText,
   IonRippleEffect,
-  useIonRouter, // Mantengo tu router
+  useIonRouter,
 } from "@ionic/react";
 import {
   personCircleOutline,
@@ -25,14 +25,13 @@ import {
   alertCircleOutline,
   logInOutline,
 } from "ionicons/icons";
-import { login } from "../services/Api"; // Mantengo tu servicio de API
+import { login } from "../services/Api";
 
-import "./Login.css"; // Usaremos tu archivo CSS
+import "./Login.css";
 
 const Login: React.FC = () => {
   const router = useIonRouter();
 
-  // Estados combinados de ambos códigos
   const [user, setUser] = useState<string>("");
   const [pass, setPass] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -47,7 +46,6 @@ const Login: React.FC = () => {
     color: "danger",
   });
 
-  // Tu función handleLogin original, sin cambios
   const handleLogin = async () => {
     if (!user.trim() || !pass.trim()) {
       setToast({
@@ -92,7 +90,6 @@ const Login: React.FC = () => {
   return (
     <IonPage>
       <IonContent fullscreen className="login-page">
-        {/* Fondo animado */}
         <div className="background-animation">
           <div className="floating-shapes">
             <div className="shape shape-1"></div>
@@ -106,7 +103,6 @@ const Login: React.FC = () => {
         <div className="login-container">
           <IonCard className="login-card">
             <IonCardContent className="login-card-content">
-              {/* Encabezado */}
               <div className="login-header">
                 <div className="logo-wrapper">
                   <div className="logo-container">
@@ -122,7 +118,6 @@ const Login: React.FC = () => {
                 </p>
               </div>
 
-              {/* Formulario de Login */}
               <form className="login-form" onSubmit={handleSubmit}>
                 <div className="form-group">
                   <IonItem lines="none" className="modern-input">
@@ -180,7 +175,6 @@ const Login: React.FC = () => {
                   </IonItem>
                 </div>
 
-                {/* Botón de Login */}
                 <div className="button-group">
                   <IonButton
                     expand="block"
@@ -215,7 +209,6 @@ const Login: React.FC = () => {
           </IonCard>
         </div>
 
-        {/* Toast mejorado */}
         <IonToast
           isOpen={toast.show}
           message={toast.message}

@@ -1,6 +1,3 @@
-// src/services/Api.ts
-
-// ==================== TIPOS DE DATOS ====================
 export type SysUser = {
   record: number;
   id: number;
@@ -18,10 +15,8 @@ export type AttendanceItem = {
   join_date: string;
 };
 
-// ==================== URL BASE ====================
-const BASE_URL = "/api/examen.php";
+const BASE_URL = "http://172.22.50.7:8100/api/examen.php";
 
-// ==================== FUNCIONES HTTP ====================
 async function httpGet<T>(
   url: string,
   params?: Record<string, string>
@@ -64,13 +59,6 @@ async function httpPost<T>(url: string, body: any): Promise<T> {
   }
 }
 
-// ==================== FUNCIONES DE API ====================
-
-/**
- * Login de usuario
- * @param user - nombre de usuario
- * @param pass - contraseña / cédula
- */
 export async function login(
   user: string,
   pass: string
@@ -82,10 +70,6 @@ export async function login(
   return null;
 }
 
-/**
- * Listar asistencias de un usuario
- * @param record_user - ID interno del usuario
- */
 export async function listAttendanceApi(
   record_user: number
 ): Promise<AttendanceItem[]> {
@@ -102,11 +86,6 @@ export async function listAttendanceApi(
     .sort((a, b) => (a.join_date < b.join_date ? 1 : -1));
 }
 
-/**
- * Registrar nueva asistencia
- * @param record_user - ID interno del usuario
- * @param join_user - cédula del usuario
- */
 export async function registerAttendanceApi(
   record_user: number,
   join_user: string

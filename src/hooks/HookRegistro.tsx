@@ -6,7 +6,6 @@ import {
   registerAttendanceApi,
 } from "../services/Api";
 
-// El hook exporta todo lo que el componente visual necesita
 export const useAttendance = () => {
   const [userData, setUserData] = useState<SysUser | null>(null);
   const [attendanceList, setAttendanceList] = useState<AttendanceItem[]>([]);
@@ -102,7 +101,6 @@ export const useAttendance = () => {
     }
   };
 
-  // Devolvemos un objeto con todo lo que el componente necesita
   return {
     isLoading,
     attendanceList,

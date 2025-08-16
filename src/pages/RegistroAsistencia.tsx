@@ -41,8 +41,8 @@ import {
   statsChartOutline,
   refreshOutline,
 } from "ionicons/icons";
-import { useAttendance } from "../hooks/HookRegistro"; // Tu hook real
-import "./RegistroAsistencia.css"; // Los nuevos estilos
+import { useAttendance } from "../hooks/HookRegistro";
+import "./RegistroAsistencia.css";
 
 const RegistroAsistencia: React.FC = () => {
   const {
@@ -65,7 +65,6 @@ const RegistroAsistencia: React.FC = () => {
     handleRegister,
   } = useAttendance();
 
-  // --- Helper Functions del nuevo estilo ---
   const diasSemana = [
     "Domingo",
     "Lunes",
@@ -79,16 +78,15 @@ const RegistroAsistencia: React.FC = () => {
   const getStatusColor = (date: string) => {
     const today = new Date();
     const recordDate = new Date(date);
-    // Reseteamos la hora para comparar solo fechas
     today.setHours(0, 0, 0, 0);
     recordDate.setHours(0, 0, 0, 0);
 
     const diffTime = today.getTime() - recordDate.getTime();
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-    if (diffDays === 0) return "success"; // Hoy
-    if (diffDays <= 2) return "warning"; // Últimos 2 días
-    return "medium"; // Más antiguo
+    if (diffDays === 0) return "success";
+    if (diffDays <= 2) return "warning";
+    return "medium";
   };
 
   const formatDate = (dateString: string) => {
@@ -177,7 +175,7 @@ const RegistroAsistencia: React.FC = () => {
               <IonGrid>
                 {attendanceList.map((item) => {
                   const fecha = new Date(item.date);
-                  const diaNombre = diasSemana[fecha.getUTCDay()]; // Usar getUTCDay para evitar problemas de zona horaria
+                  const diaNombre = diasSemana[fecha.getUTCDay()];
                   const statusColor = getStatusColor(item.date);
                   return (
                     <IonRow key={item.record}>
