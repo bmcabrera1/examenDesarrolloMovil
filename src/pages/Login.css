@@ -236,17 +236,19 @@
   position: relative;
 }
 
+/* 🔧 Inputs modernizados y con íconos centrados */
 .modern-input {
+  display: flex;
+  align-items: center;
   --background: rgba(248, 250, 252, 0.8);
   --border-radius: 16px;
-  --padding-start: 1rem;
+  --padding-start: 0.75rem;
   --padding-end: 1rem;
   --inner-padding-end: 0.5rem;
   border-radius: 16px;
   backdrop-filter: blur(10px);
   border: 2px solid rgba(226, 232, 240, 0.8);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  position: relative;
   overflow: hidden;
 }
 
@@ -270,6 +272,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   margin-right: 0.75rem;
 }
 
@@ -282,10 +285,11 @@
   font-size: 0.875rem;
   font-weight: 600;
   color: #475569;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .custom-input {
+  flex: 1;
   font-size: 1rem;
   font-weight: 500;
   --placeholder-color: #94a3b8;
