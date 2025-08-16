@@ -10,6 +10,18 @@ export default defineConfig({
     react(),
     legacy()
   ],
+  server: {
+    port: 3000,
+    proxy: {
+      // Todas las peticiones que empiecen con /api se redirigen al backend real
+      '/api': {
+        target: 'https://puce.estudioika.com',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/api/, '/api'), // mantiene /api/examen.php
+      }
+    }
+  },
   test: {
     globals: true,
     environment: 'jsdom',
